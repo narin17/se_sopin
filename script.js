@@ -278,7 +278,7 @@ function initBlogModal() {
       title: 'The Art of Inside Flow: Moving to the Beat of Your Heart',
       category: 'Inside Flow',
       date: 'August 10, 2026',
-      img: 'assets/IMG_1350.JPG',
+      img: 'assets/IMG_1350.webp',
       content: `
         <p>Inside Flow is more than just a workout—it is an evolution of Vinyasa yoga where movement aligns continuously with modern music and rhythmic breathing. Each sequence tells a story through grace, posture, and strength.</p>
         <p>When we sync our movement with music, we bypass the analytical mind and drop directly into the body's intuitive intelligence. You are no longer just practicing yoga; you are living the music.</p>
@@ -295,7 +295,7 @@ function initBlogModal() {
       title: '5 Morning Mindful Habits for Emotional Balance',
       category: 'Mindfulness',
       date: 'July 28, 2026',
-      img: 'assets/IMG_1795.JPG',
+      img: 'assets/IMG_1795.webp',
       content: `
         <p>How you spend the first 20 minutes of your day sets the tone for your entire nervous system. Cultivating gentle, grounding morning habits helps you respond to life's challenges with clarity rather than reactivity.</p>
         <h4>1. Conscious Breathing (Pranayama)</h4>
@@ -310,7 +310,7 @@ function initBlogModal() {
       title: 'Why Savasana is the Most Important Yoga Pose',
       category: 'Philosophy',
       date: 'July 14, 2026',
-      img: 'assets/IMG_5915.JPG',
+      img: 'assets/IMG_5915.webp',
       content: `
         <p>In our fast-paced world, sitting in stillness often feels like a luxury—or even an discomfort. Yet Savasana (Corpse Pose) is where the magic of physical yoga practice integrates into the central nervous system.</p>
         <p>During physical movement, we stimulate muscles, compress joints, and release hormones. Savasana allows the parasympathetic nervous system ("rest and digest") to assimilate all physical work done during class.</p>
