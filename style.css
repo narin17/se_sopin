@@ -699,10 +699,12 @@ p {
   gap: 8px;
   color: #ffffff;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
-.cert-image-wrapper:hover .cert-overlay {
+.cert-image-wrapper:hover .cert-overlay,
+.cert-image-wrapper:active .cert-overlay {
   opacity: 1;
 }
 
@@ -814,6 +816,27 @@ p {
   font-size: 0.85rem;
   font-weight: 500;
   text-align: center;
+  pointer-events: none;
+}
+
+/* Mobile Responsive Optimizations for Certifications & Moments */
+@media (max-width: 768px) {
+  .certifications-section {
+    padding: 3rem 1.2rem;
+  }
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+  .cert-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .cert-overlay {
+    opacity: 0.85;
+    background: rgba(34, 34, 34, 0.35);
+  }
 }
 
 /* Blog Section */

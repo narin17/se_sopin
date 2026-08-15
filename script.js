@@ -85,6 +85,11 @@ function initScrollReveal() {
   
   revealElements.forEach(el => el.classList.add('reveal-init'));
 
+  if (!('IntersectionObserver' in window)) {
+    revealElements.forEach(el => el.classList.add('revealed'));
+    return;
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -93,18 +98,25 @@ function initScrollReveal() {
       }
     });
   }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.01,
+    rootMargin: '100px 0px 100px 0px'
   });
 
-  revealElements.forEach(el => observer.observe(el));
+  revealElements.forEach(el => {
+    observer.observe(el);
+    // Fallback: immediately reveal if already in viewport
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('revealed');
+    }
+  });
 }
 
 /* -------------------------------------------------------------
  * 4. Image Lightbox Modal (Certificates & Instagram Gallery)
  * ------------------------------------------------------------- */
 function initInstagramLightbox() {
-  const images = document.querySelectorAll('.insta-grid img, .lightbox-trigger');
+  const targets = document.querySelectorAll('.insta-grid img, .lightbox-trigger, .cert-image-wrapper, .cert-gallery-item');
   const lightbox = document.getElementById('lightbox-modal');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxCaption = document.getElementById('lightbox-caption');
@@ -112,8 +124,12 @@ function initInstagramLightbox() {
 
   if (!lightbox || !lightboxImg) return;
 
-  images.forEach(img => {
-    img.addEventListener('click', () => {
+  targets.forEach(target => {
+    target.addEventListener('click', (e) => {
+      e.preventDefault();
+      const img = target.tagName === 'IMG' ? target : target.querySelector('img');
+      if (!img) return;
+
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
       if (lightboxCaption) {
